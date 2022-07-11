@@ -18,7 +18,9 @@
 			var geometry = new THREE.SphereGeometry(60, 40, 40);
 			var geometry = new THREE.BoxGeometry(100, 100, 100);
 			var material = new THREE.MeshLambertMaterial({
-      			color: 0x0000ff
+      			color: 0x0000ff,
+				opacity:0.9,
+    			transparent:true
     		}); //材质对象Materia
 			var mesh = new THREE.Mesh(geometry,material);
 			scene.add(mesh);
@@ -34,13 +36,14 @@
 			//box.translateY(200);
 			scene.add(box);
 
-			var axesHelper = new THREE.AxesHelper(250);
+			var axesHelper = new THREE.AxesHelper(2500);
 			scene.add(axesHelper);
 
 			// 立方体网格模型
 			var geometry1 = new THREE.BoxGeometry(100, 100, 100);
 			var material1 = new THREE.MeshLambertMaterial({
-			color: 0x0000ff
+			color: 0x0000ff,
+			wireframe: true
 			}); //材质对象Material
 			var mesh1 = new THREE.Mesh(geometry1, material1); //网格模型对象Mesh
 			mesh1.translateZ(100)
@@ -60,7 +63,9 @@
 			// 圆柱网格模型
 			var geometry3 = new THREE.CylinderGeometry(50, 50, 100, 25);
 			var material3 = new THREE.MeshLambertMaterial({
-			color: 0xffff00
+			color: 0xffff00,
+			opacity:0.3,
+    		transparent:true
 			});
 			var mesh3 = new THREE.Mesh(geometry3, material3); //网格模型对象Mesh
 			// mesh3.translateX(120); //球体网格模型沿Y轴正方向平移120
