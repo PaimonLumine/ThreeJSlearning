@@ -28,9 +28,9 @@
 			var point = new THREE.PointLight(0xffffff);
 			point.position.set(400,500,200);
 			scene.add(point);
-			/*
+			
 			var ambient = new THREE.AmbientLight(0x444444);
-			scene.add(ambient);*/
+			scene.add(ambient);
 
 			var box=new THREE.SphereGeometry(60,40,40);//创建一个球体几何对象
 			//box.translateY(200);
@@ -46,7 +46,7 @@
 			wireframe: true
 			}); //材质对象Material
 			var mesh1 = new THREE.Mesh(geometry1, material1); //网格模型对象Mesh
-			mesh1.translateZ(100);		
+			mesh1.translateZ(200);		
 			//mesh1.castShadow = true;
 			scene.add(mesh1); //网格模型添加到场景中
 
@@ -58,7 +58,7 @@
     		transparent:true
 			});
 			var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
-			mesh2.translateY(120); //球体网格模型沿Y轴正方向平移120
+			mesh2.translateY(40); //球体网格模型沿Y轴正方向平移120
 			scene.add(mesh2);
 
 			// 圆柱网格模型
@@ -70,7 +70,7 @@
 			});
 			var mesh3 = new THREE.Mesh(geometry3, material3); //网格模型对象Mesh
 			// mesh3.translateX(120); //球体网格模型沿Y轴正方向平移120
-			mesh3.position.set(120,0,0);//设置mesh3模型对象的xyz坐标为120,0,0
+			mesh3.position.set(40,0,0);//设置mesh3模型对象的xyz坐标为120,0,0
 			scene.add(mesh3); //
 
 			var planeGeometry = new THREE.PlaneGeometry(600, 600);
@@ -82,7 +82,107 @@
 			plane.position.set(150, -100, 100);
 			//plane.receiveShadow = true;
 			scene.add(plane);
-			
+			/**
+			 * 阵列立方体网格模型
+			 */
+			var box=new THREE.BoxGeometry(10,10,10);//创建一个立方体几何对象
+			for (var j = 0; j < 20; j++){
+				for (var i = 0; i < 20; i++){
+					for(var x = 0;x<20;x++){//10表示立方体数量
+						var material=new THREE.MeshLambertMaterial({color:0x0000ff});//材质对象
+						material.color.setRGB(j/20,i/20,x/20);
+						var mesh=new THREE.Mesh(box,material);//网格模型对象
+						mesh.position.set(x*15,15*i,15*j);//立方体间距15（阵列距离）
+						scene.add(mesh);//网格模型添加到场景中
+					}
+				}
+			}
+
+			/**
+			 * 阵列立方体网格模型
+			 */
+			 var box=new THREE.BoxGeometry(10,10,10);//创建一个立方体几何对象
+			for (var j = 0; j < 20; j++){
+				for (var i = 0; i < 20; i++){
+					for(var x = 0;x<20;x++){//10表示立方体数量
+						var material=new THREE.MeshLambertMaterial({color:0x0000ff});//材质对象
+						material.color.setRGB(x/20,j/20,j/20);
+						var mesh=new THREE.Mesh(box,material);//网格模型对象
+						mesh.position.set(-x*15,-15*i,15*j);//立方体间距15（阵列距离）
+						scene.add(mesh);//网格模型添加到场景中
+					}
+				}
+			}
+			/**
+			 * 阵列立方体网格模型
+			 */
+			 var box=new THREE.BoxGeometry(20,20,20);//创建一个立方体几何对象
+			for (var j = 0; j < 20; j++){
+				for (var i = 0; i < 20; i++){
+					for(var x = 0;x<20;x++){//10表示立方体数量
+						var material=new THREE.MeshLambertMaterial({color:0x0000ff});//材质对象
+						material.color.setRGB(i/20,j/20,j/20);
+						var mesh=new THREE.Mesh(box,material);//网格模型对象
+						mesh.position.set(j*25,-25*x,25*j);//立方体间距15（阵列距离）
+						scene.add(mesh);//网格模型添加到场景中
+					}
+				}
+			}
+			//球阵列
+			var box=new THREE.SphereGeometry(10,10,10);//创建一个立方体几何对象
+			for (var j = 0; j < 20; j++){
+				for (var i = 0; i < 20; i++){
+					for(var x = 0;x<20;x++){//10表示立方体数量
+						var material=new THREE.MeshLambertMaterial({color:0x0000ff});//材质对象
+						material.color.setRGB(j/20,i/20,x/20);
+						var mesh=new THREE.Mesh(box,material);//网格模型对象
+						mesh.position.set(-x*15,-15*i,-15*j);//立方体间距15（阵列距离）
+						scene.add(mesh);//网格模型添加到场景中
+					}
+				}
+			}
+
+			//球阵列
+			var box=new THREE.SphereGeometry(10,10,10);//创建一个立方体几何对象
+			for (var j = 0; j < 20; j++){
+				for (var i = 0; i < 20; i++){
+					for(var x = 0;x<20;x++){//10表示立方体数量
+						var material=new THREE.MeshLambertMaterial({color:0x0000ff});//材质对象
+						material.color.setRGB(x/20,x/20,x/20);
+						var mesh=new THREE.Mesh(box,material);//网格模型对象
+						mesh.position.set(x*15,-15*i,-15*j);//立方体间距15（阵列距离）
+						scene.add(mesh);//网格模型添加到场景中
+					}
+				}
+			}
+
+			//球阵列
+			var box=new THREE.SphereGeometry(10,10,10);//创建一个立方体几何对象
+			for (var j = 0; j < 20; j++){
+				for (var i = 0; i < 20; i++){
+					for(var x = 0;x<20;x++){//10表示立方体数量
+						var material=new THREE.MeshLambertMaterial({color:0x0000ff});//材质对象
+						material.color.setRGB(i/20,i/20,x/20);
+						var mesh=new THREE.Mesh(box,material);//网格模型对象
+						mesh.position.set(x*15,15*i,-15*j);//立方体间距15（阵列距离）
+						scene.add(mesh);//网格模型添加到场景中
+					}
+				}
+			}
+			//球阵列
+			var box=new THREE.SphereGeometry(10,10,10);//创建一个立方体几何对象
+			for (var j = 0; j < 20; j++){
+				for (var i = 0; i < 20; i++){
+					for(var x = 0;x<20;x++){//10表示立方体数量
+						var material=new THREE.MeshLambertMaterial({color:0x0000ff});//材质对象
+						material.color.setRGB(i/20,x/20,i/20);
+						var mesh=new THREE.Mesh(box,material);//网格模型对象
+						mesh.position.set(-x*15,15*i,-15*j);//立方体间距15（阵列距离）
+						scene.add(mesh);//网格模型添加到场景中
+					}
+				}
+			}
+
 
 			//点光源
 			/*
